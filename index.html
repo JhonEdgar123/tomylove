@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            width: 400px;
+            height: 200px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 20px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: absolute;
+        }
+        #yes {
+            background-color: red;
+            color: white;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #no {
+            background-color: white;
+            color: red;
+            border: 2px solid red;
+        }
+        .valentine-img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://i.pinimg.com/736x/4c/42/83/4c428368cc011dc2a442362f0d2bbafd.jpg" alt="Valentine Heart" class="valentine-img">
+    <h1>Will you be my Valentine? ❤️</h1>
+    <div class="buttons">
+        <button id="yes" onclick="confirmYes()">Yes</button>
+        <button id="no" onclick="moveNoButton()">No</button>
+    </div>
+
+    <script>
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        let yesSize = 16;
+        let clickedYes = false;
+
+        function moveNoButton() {
+            yesSize += 5;
+            yesButton.style.fontSize = `${yesSize}px`;
+            yesButton.style.padding = `${yesSize / 3}px ${yesSize / 1.5}px`;
+            
+            let buffer = yesSize + 100; // Increase buffer for more spacing
+            let maxX = document.querySelector(".buttons").clientWidth - noButton.clientWidth - buffer;
+            let maxY = document.querySelector(".buttons").clientHeight - noButton.clientHeight - buffer;
+            
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+            
+            if (x < buffer) x += buffer;
+            if (y < buffer) y += buffer;
+            
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+
+        function confirmYes() {
+            if (!clickedYes) {
+                yesButton.textContent = "Are you sure?";
+                clickedYes = true;
+            } else {
+                window.location.href = "love_message.html";
+            }
+        }
+    </script>
+</body>
+</html>
