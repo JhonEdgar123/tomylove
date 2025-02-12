@@ -32,6 +32,18 @@
             height: 100%;
             pointer-events: none;
         }
+        .gif-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gif-container img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
 </head>
@@ -39,7 +51,13 @@
     <h1>I love you my love! ❤️</h1>
     <p>See you on Feb 15!</p>
     
-    <img src="https://media.tenor.com/Zs9v5RaGm3sAAAAC/cat-clapping.gif" alt="Clapping Cat" width="320" height="240">
+    <div class="gif-container">
+        <img src="https://media.tenor.com/Zs9v5RaGm3sAAAAC/cat-clapping.gif" alt="Clapping Cat">
+        <img src="https://media.tenor.com/34JUoF1GLb4AAAAC/cute-cat.gif" alt="Happy Cat">
+        <img src="https://media.tenor.com/Ws6Dm1ZW_vMAAAAC/happy-cat.gif" alt="Excited Cat">
+        <img src="https://media.tenor.com/5D3zS8b0JgcAAAAC/cat-love.gif" alt="Love Cat">
+        <img src="https://media.tenor.com/jkCn2MPt9S8AAAAC/cat-happy.gif" alt="Dancing Cat">
+    </div>
 
     <script>
         function launchConfetti() {
